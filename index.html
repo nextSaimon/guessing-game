@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .help {
+        color: #701fda;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      fieldset {
+        width: 350px;
+      }
+    </style>
+    <title>Guessing Game</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Settings</legend>
+      <span>Limit</span>
+      <select id="limit" onchange="updateLimit()">
+        <option value="100">100</option>
+        <option value="50">50</option>
+        <option value="200">200</option>
+      </select>
+      <br />
+      <span>Max Tries</span>
+      <select id="tries" onchange="updateTries()">
+        <option value="10">10</option>
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="20">20</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>Game</legend>
+      <h1>
+        Guess my chosen number.
+        <span class="help" onclick="showHelp()">? Help</span>
+      </h1>
+      <h1 id="status">Max <span id="triesLeft"></span> tries</h1>
+      <p id="rangeDisplay"></p>
+      <input id="guessInput" type="number" placeholder="Enter your guess" />
+      <button onclick="makeGuess()">Guess</button>
+    </fieldset>
+    <button style="margin-top: 5px" onclick="resetGame()">Reset</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
