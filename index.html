@@ -40,19 +40,25 @@
       <legend>Game</legend>
       <h1>
         Guess my chosen number.
-        <span class="help" onclick="showHelp()">? Help</span>
+        <span class="help text-blue-500 cursor-pointer" onclick="showHelp()"
+          >? Help</span
+        >
       </h1>
-      <h1 id="status">Max <span id="triesLeft"></span> tries</h1>
+      <h1 class="font-bold" id="status">
+        Max <span id="triesLeft"></span> tries
+      </h1>
       <p id="rangeDisplay"></p>
-      <input id="guessInput" type="text" placeholder="Enter your guess" />
-      <button
-        onclick="makeGuess()"
-        class="btn"
-      >
-        Guess
-      </button>
+      <input
+        class="border-[2px] rounded-md border-gray-500"
+        id="guessInput"
+        type="text"
+        placeholder="Enter your guess"
+      />
+      <button onclick="makeGuess()" class="btn">Guess</button>
     </fieldset>
-    <button style="margin-top: 5px" onclick="resetGame()" class="btn">Reset</button>
+    <button style="margin-top: 5px" onclick="resetGame()" class="btn">
+      Reset
+    </button>
     <script src="./script.js"></script>
   </body>
 </html>

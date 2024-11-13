@@ -12,13 +12,15 @@ function updateLimit() {
     "rangeDisplay"
   ).innerHTML = `Guess a number between ${lowerBound} and ${upperBound}`;
   targetNumber = generateRandomNumber(limit);
-  console.log(`New target number is ${targetNumber}`);
 }
 
 function updateTries() {
   maxTries = parseInt(document.getElementById("tries").value);
   remainingTries = maxTries;
-  document.getElementById("triesLeft").innerHTML = remainingTries;
+  const triesLeftElement = document.getElementById("triesLeft");
+  if (triesLeftElement) {
+    triesLeftElement.innerHTML = remainingTries;
+  }
 }
 
 function generateRandomNumber(limit) {
@@ -41,7 +43,7 @@ function makeGuess() {
   if (guess === targetNumber) {
     document.getElementById(
       "status"
-    ).innerHTML = `Correct! 🎉 The number was ${targetNumber}.`;
+    ).innerHTML = `✅ Correct! 🎉 The number was ${targetNumber}.`;
     remainingTries = 0;
   } else {
     remainingTries--;
@@ -85,6 +87,24 @@ function resetGame() {
     "rangeDisplay"
   ).innerHTML = `Guess a number between ${lowerBound} and ${upperBound}`;
 }
+function addToDisplay(val) {
+  let dis = document.getElementById("guessInput");
+  dis.value += val;
+}
+function Back() {
+  let ev = document.getElementById("guessInput");
+  ev.value = ev.value.slice(0, -1);
+}
+document.addEventListener("keydown", (event) => {
+  const validKeys = "0123456789";
+  if (validKeys.includes(event.key)) {
+    addToDisplay(event.key);
+  } else if (event.key === "Backspace") {
+    Back();
+  } else if (event.key === "Enter") {
+    makeGuess();
+  }
+});
 
 updateLimit();
 updateTries();
