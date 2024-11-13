@@ -8,9 +8,7 @@ let upperBound;
 function updateLimit() {
   limit = parseInt(document.getElementById("limit").value);
   upperBound = limit;
-  document.getElementById(
-    "rangeDisplay"
-  ).innerHTML = `Guess a number between ${lowerBound} and ${upperBound}`;
+  resetGame(); // Reset the game when the limit is changed
   targetNumber = generateRandomNumber(limit);
 }
 
@@ -21,6 +19,7 @@ function updateTries() {
   if (triesLeftElement) {
     triesLeftElement.innerHTML = remainingTries;
   }
+  resetGame(); // Reset the game when the max tries is changed
 }
 
 function generateRandomNumber(limit) {
@@ -75,26 +74,33 @@ function showHelp() {
 
 function resetGame() {
   lowerBound = 0;
-  document.getElementById("limit").value = 100;
-  document.getElementById("tries").value = 10;
   document.getElementById("guessInput").value = "";
-
-  updateLimit();
-  updateTries();
-
   document.getElementById("status").innerHTML = `Max ${maxTries} tries`;
   document.getElementById(
     "rangeDisplay"
   ).innerHTML = `Guess a number between ${lowerBound} and ${upperBound}`;
+  remainingTries = maxTries;
+  const triesLeftElement = document.getElementById("triesLeft");
+  if (triesLeftElement) {
+    triesLeftElement.innerHTML = remainingTries;
+  }
 }
+
 function addToDisplay(val) {
   let dis = document.getElementById("guessInput");
-  dis.value += val;
+
+  // Ensure the current value is only updated if it's not already the same
+  if (dis.value !== undefined && dis.value !== null) {
+    dis.value += val;
+  }
 }
+
 function Back() {
   let ev = document.getElementById("guessInput");
   ev.value = ev.value.slice(0, -1);
 }
+
+// Event listener for keydown to handle number input
 document.addEventListener("keydown", (event) => {
   const validKeys = "0123456789";
   if (validKeys.includes(event.key)) {
@@ -106,5 +112,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Initialize the game with default values
 updateLimit();
 updateTries();
