@@ -22,7 +22,7 @@ A simple web-based number guessing game. The player has to guess a randomly chos
 
 - `index.html` - Main HTML file for the game interface.
 - `script.js` - JavaScript file containing game logic.
-- `style.css` - Optional CSS for additional styling (if needed).
+- `style.css` - Optional CSS for additional styling.
 
 ## Getting Started
 
