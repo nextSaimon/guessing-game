@@ -32,3 +32,4 @@ To play the game:
    ```bash
    git clone https://github.com/username/guessing-game.git
    ```
+2. <a href="https://nextsaimon.github.io/guessing-game/" target="_blank">Play the Guessing Game</a>
