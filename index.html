@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
+    <!-- <style>
       .help {
         color: #701fda;
         text-decoration: underline;
@@ -12,11 +12,14 @@
       fieldset {
         width: 350px;
       }
-    </style>
+    </style> -->
+    <link rel="stylesheet" href="style.css" />
     <title>Guessing Game</title>
   </head>
-  <body>
-    <fieldset>
+  <body
+    class="min-h-screen w-screen flex flex-col items-center justify-center text-[22px]"
+  >
+    <fieldset class="fieldset">
       <legend>Settings</legend>
       <span>Limit</span>
       <select id="limit" onchange="updateLimit()">
@@ -33,7 +36,7 @@
         <option value="20">20</option>
       </select>
     </fieldset>
-    <fieldset>
+    <fieldset class="fieldset">
       <legend>Game</legend>
       <h1>
         Guess my chosen number.
@@ -41,10 +44,15 @@
       </h1>
       <h1 id="status">Max <span id="triesLeft"></span> tries</h1>
       <p id="rangeDisplay"></p>
-      <input id="guessInput" type="number" placeholder="Enter your guess" />
-      <button onclick="makeGuess()">Guess</button>
+      <input id="guessInput" type="text" placeholder="Enter your guess" />
+      <button
+        onclick="makeGuess()"
+        class="btn"
+      >
+        Guess
+      </button>
     </fieldset>
-    <button style="margin-top: 5px" onclick="resetGame()">Reset</button>
+    <button style="margin-top: 5px" onclick="resetGame()" class="btn">Reset</button>
     <script src="./script.js"></script>
   </body>
 </html>

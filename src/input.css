@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fieldset {
+  @apply border-2 border-gray-900 w-[90%] p-2 sm:w-[70%] md:w-[550px];
+}
+.btn {
+  @apply border-[2px] border-gray-700 px-4 rounded-md;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "guessinggame",
+  "version": "1.0.0",
+  "description": "A simple web-based number guessing game. The player has to guess a randomly chosen number within a specified range and a limited number of attempts. Each incorrect guess narrows down the range until the player finds the correct answer or runs out of attempts.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}
